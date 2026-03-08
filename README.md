@@ -1,0 +1,2 @@
+# Reappear-the-AI-form
+这个项目包含两个代码文件，文件名为Editor的python代码可以把AI生成的表格复制文本后生成csv文件，文件名为Csv_text的python代码可以把生成的csv文件转换为txt文件
