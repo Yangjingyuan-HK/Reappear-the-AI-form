@@ -1,35 +1,33 @@
 # Reappear-the-AI-form
-这个项目包含两个代码文件，文件名为Editor的python代码可以把AI生成的表格复制文本后生成csv文件，文件名为Csv_text的python代码可以把生成的csv文件转换为txt文件
-生成的csv文件、txt文件都可以在放置代码的文件夹内找到
-该项目可以通过任何python编辑器(visual studio/vs code/pycharm/jupyter notebook)运行
------------------------------------------------------------------------------------------------------------
-使用说明：
-在编辑器中选择open file 再选该项目文件夹，即可显示源代码
-先选择名为 Editor 的文件
-点击运行，在运行区粘贴从AI表格粘贴的文字段
-从AI表格粘贴时，既可以直接选择文本粘贴，也可点击表格右上角的复制按钮(如果有的话)
-按回车键
-在新的一行输入：generate
-再按回车键
-完成
 
-如需要txt版的内容：
-选择名为 Csv-txt 的文件
-点击运行
-完成
------------------------------------------------------------------------------------------------------------
-说明：
-该项目的代码会生成两种文件：
-Table generate for you.csv
-Txt file generate for you.txt
-下一次运行时会自动覆盖上一次的文件内容
-如果需要保留上一次运行内容，则需要重命名该文件
-第一次运行，或不存在文件名相同的文件时则自动生成以上两种名字的文件
-不支持转换latex公式，所以如果AI表格生成的是数学公式，则不能正确编译
------------------------------------------------------------------------------------------------------------
-BUG处理：
-这个项目适配90%的豆包/deep seek生成的AI表格，但不适配千问
-代码使用空格来判断字符串属于哪一个单元格，因此若AI表格的一个单元格内出现空格时，生成的csv/txt文件将会错乱
-这可以通过先将代码复制到其他地方，删除掉不必要的空格，再粘贴到代码运行区来解决
-亦可以先粘贴到代码运行区，然而粘贴后的文段会被立刻存入内存，所以即使在运行区修改了空格，执行时仍然会执行一开始的文段
-所以可以通过在代码运行区修改空格后，复制这一段文字，结束运行，开始新的运行，复制到新的代码运行区来解决
+## Project Overview
+This project contains two Python scripts to streamline the processing of AI-generated table data, compatible with all common Python editors (Visual Studio, VS Code, PyCharm, Jupyter Notebook).
+
+- `Editor.py`: Converts text copied from AI-generated tables into a standard CSV file
+- `Csv_text.py`: Converts the generated CSV file into a TXT file
+
+All generated CSV and TXT files will be saved in the same folder as the scripts.
+
+## Usage Instructions
+### Generate CSV file from AI table
+1.  Open the project folder in your Python editor via the "Open File" option to access the source code
+2.  Select and run the `Editor.py` file
+3.  Paste the text copied from the AI-generated table into the runtime console (you can either paste the plain text directly, or use the copy button in the top-right corner of the AI table if available)
+4.  Press Enter, input `generate` in the new line, then press Enter again to complete the generation.
+
+### Generate TXT file from CSV
+1.  Select and run the `Csv_text.py` file
+2.  The TXT file will be generated automatically after the script finishes running.
+
+## Important Notes
+- The scripts will generate two files by default: `Table generate for you.csv` and `Txt file generate for you.txt`
+- Existing files with the same names will be **automatically overwritten** when you re-run the scripts. If you need to retain previous results, please rename the existing files before re-running
+- The scripts will automatically create the above two files on the first run, or when no files with matching names exist in the folder
+- This project does not support LaTeX formula conversion. If the AI-generated table contains mathematical formulas, the output file will not be compiled correctly.
+
+## BUG Handling & Limitations
+- This project is compatible with 90% of AI-generated tables from Doubao and DeepSeek, but not with tables from Qianwen
+- The script uses spaces to determine which string belongs to which table cell. If there are spaces inside a single cell of the AI-generated table, the output CSV/TXT file will be disorganized
+- Fix for space-related errors:
+  1.  Copy the table text to another place first, delete unnecessary spaces, then paste it into the runtime console; OR
+  2.  After pasting the text and modifying the spaces in the runtime console, copy the revised full text, terminate the current run, start a new run, and paste the revised text into the new runtime console.
